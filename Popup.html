@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOEMI - Блог о творчестве, спорте и образе жизни</title>
+  <meta name="description" content="Блог о творчестве, спорте и образе жизни с полезными статьями и новыми постами">
+  <link rel="stylesheet" href="Noemi_base_style.css">
+</head>
+<body>
+<!-- Оверлей для затемнения фона -->
+<!-- Pop-up -->
+<div class="popup_overlay"></div> <!-- Оверлей для затемнения фона -->
+<section class="popup">
+  <div class="popup_layout">
+    <!-- Кнопка закрытия -->
+    <button class="popup_close">&times;</button>
+    <h2 class="sidebar_title">Ваш фитбек</h2>
+    <!-- Единая форма для всех данных -->
+    <form class="popup_question" id="feedbackForm">
+      <!-- Первый вопрос -->
+      <div class="form-group">
+        <label>Как часто вы заходите на сайт?</label>
+        <input class="popup_input" type="text" name="visit_frequency" placeholder="Почти каждый день" required>
+      </div>
+      <!-- Вопрос с радиокнопками -->
+      <div class="form-group">
+        <label>Вы подписаны на e-mail подписку?</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="email_subscription" value="yes" required>
+            <span class="radio-custom"></span>
+            Да
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="email_subscription" value="no">
+            <span class="radio-custom"></span>
+            Нет
+          </label>
+        </div>
+      </div>
+      <!-- Третий вопрос -->
+      <div class="form-group">
+        <label>Расскажите, какой контент вы хотели бы видеть на нашем сайте?</label>
+        <textarea class="popup_input popup_textarea" name="desired_content" placeholder="Может, больше рецептов?" required></textarea>
+      </div>
+      <!-- Кнопка отправки -->
+      <button type="submit" class="popup_button">
+        <span>Отправить</span>
+      </button>
+    </form>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,1176 @@
+/* -------------------Загрузка шрифтов---------------- */
+@font-face {
+    font-family: "Open Sans";
+    src: url("https://netology-code.github.io/html-2-diploma/sources/fonts/OpenSans-Regular.woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("https://netology-code.github.io/html-2-diploma/sources/fonts/OpenSans-Bold.woff");
+    font-weight: 700;
+    font-style: normal;
+}
+/* -------------------Общие стили (десктоп) 1200px+---------------- */
+/* -------------------Сброс стилей браузера---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -------------------Body (тело)---------------- */
+.wrapper {
+    margin: 0 auto;
+    max-width: 1660px;
+}
+
+/* -------------------Header (шапка и лого)---------------- */
+.entry { /* Шапка фон */
+    background-image: url("https://netology-code.github.io/html-2-diploma/sources/images/banner-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(36, 56, 91);
+    position: relative;
+    padding: 20px;
+    padding-bottom: 260px ;
+    z-index: 0;
+}
+
+.entry:after { /* Затемнение фона */
+    content: "";
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.container { /* Для расположения меню и лого */
+    width: 1200px;
+    margin: 0 auto; /* автоматические внешние отступы для центрирования */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* вертикальное выравнивание по центру */
+    padding: 6px 15px;
+}
+
+.header_logo {
+    height: 40px;
+    margin-top: 2px;
+}
+
+/* -------------------Меню---------------- */
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu_list {
+    display: flex;
+    gap: 19px;
+    list-style: none;
+}
+
+.menu_link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    padding: 5px;
+}
+
+.menu_link:hover { /* Поведение меню при наведении */
+    color: rgb(243, 243, 242);
+    text-decoration: underline;
+}
+
+/* -------------------Главное название---------------- */
+.site_title {
+    text-align: center;
+    font-size: 2.9rem;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    max-width: 740px;
+}
+
+/* -------------------Сейчас в тренде---------------- */
+.trends {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: 60px auto 70px;
+}
+
+.trend_layout {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.trends_list {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+}
+
+.trends_item {
+    flex: 1;
+    position: relative;
+}
+
+.trend_card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.trend_card:after { /* Затемнение фона */
+    content: "";
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.trend_card:hover:after {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.trend_img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.trend_card:hover .trend_img {
+    transform: scale(1.05); /* Увеличение изображения */
+    filter: brightness(1.1); /* Увеличение яркости */
+}
+
+.trend_card:hover .trend_info {
+    transform: translateY(0); /* вверх блок с информацией */
+    background-color: rgba(128, 128, 128, 0.3); /*  фон */
+}
+
+.trend_link {
+    display: block;
+    position: relative;
+}
+
+.trend_info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    border: 2px solid #b59f5b;
+    padding: 15px;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    margin: 10px;
+    z-index: 2;
+}
+
+.trend_heading {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: color 0.2s ease;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+/* -------------------Все, что ниже шапки и трендов---------------- */
+.page { /* Все, что ниже шапки */
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    padding-left: 15px;
+    margin: 60px auto 0;
+}
+
+/* -------------------Основной контент---------------- */
+.post_layout { /* Все содержимое поста */
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    width: 778px;
+}
+
+.post_img {
+    max-width: 380px;
+    height: auto;
+}
+
+.post_filler {
+    padding-left: 30px;
+}
+
+.tags {
+    list-style: none;
+    display: flex;
+    padding: 0
+}
+
+.tag {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(181, 159, 91);
+    margin-right: 25px;
+}
+
+.tag:hover { /* Поведенеие тегов */
+    text-decoration: underline;
+}
+
+.post_title a{
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: color 0.2s ease;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.post_title a:hover { /* Поведение названий блогов */
+    color: rgb(181, 159, 91)
+}
+
+.post_date{
+    font-size: 0.75rem;
+    color: rgb(128, 128, 128);
+}
+
+.post_autor {
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+
+.post_text {
+    font-weight: 400;
+    font-size: 0.92rem;
+}
+
+.post_info {
+    margin-top: 22px;
+    margin-bottom: 47px;
+}
+
+/* -------------------Боковая панель---------------- */
+.sidebar { /* ИСП2 */
+    margin-left: 100px;
+    width: 270px;
+}
+
+.sidebar_title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 13px;
+    margin-bottom: 19px; /* Отступ после черты */
+    text-align: center;
+}
+
+.sidebar_title:after {
+    content: '';
+    width: 65px;
+    height: 3px;
+    background-color: rgb(213, 197, 157);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+}
+
+.fresh_post {
+    margin-bottom: 20px;
+}
+
+.fresh_post_layout{
+    display: flex;
+    align-items: flex-start;
+}
+
+.fresh_post_img {
+    width: 70px;
+    object-fit: contain;
+    display: block;
+    margin-right: 10px;
+}
+
+.fresh_post_date{
+    font-size: 0.7rem;
+    color: rgb(128, 128, 128);
+}
+
+.fresh_post_title a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
+.fresh_post_title a:hover {
+    color: rgb(181, 159, 91)
+}
+
+.search_form {
+    position: relative;
+}
+
+.search_container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 55px;
+    margin-top: 50px;
+}
+
+/* -------------------Поиск---------------- */
+.search_input { /* Поле поиска */
+    flex: 1;
+    box-sizing: border-box;
+    border: none;
+    padding: 17px;
+    font-size: 0.85rem;
+    background-color: rgb(245, 247, 246);
+}
+
+.search_input:focus {
+    outline: 1px solid rgb(181, 159, 91);
+}
+
+.search_button {
+    width: 47px; /* размер под иконку */
+    background-color: rgb(181, 159, 91);
+    background-image: url("https://netology-code.github.io/html-2-diploma/sources/images/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 47%;
+    border: none;
+    cursor: pointer;
+}
+
+.search_button:focus {
+    outline: 2px solid rgb(181, 159, 91);
+}
+
+/* -------------------Рассылка (форма отправки почты и кнопка)---------------- */
+.subscribe_input { /* Поле: Место для введения почты */
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    background-color: rgb(245, 247, 246);
+    padding: 17px;
+    margin-bottom: 16px;
+    margin-top: 25px;
+    font-size: 0.85rem;
+
+}
+
+.subscribe_input:focus { /* Поведение поля при клике */
+    outline: 1px solid rgb(181, 159, 91);
+}
+
+.subscribe_button {  /* Кнопка подписаться */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 17px;
+    width: 100%;
+    padding: 14px;
+    background-color: rgb(181, 159, 91);
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe_button:hover { /* Поведение кнопки */
+    background-color: rgb(213, 197, 157);
+}
+
+/* -------------------Скрытые элементы---------------- */
+.visually_hidden { /* Скрытые элементы, описания */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* -------------------Теги с боковой панели---------------- */
+.side_tags_list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 25px;
+}
+
+.side_tag_list_item {
+    padding: 3px 3px;
+    margin-bottom: 10px;
+}
+
+.side_tag_link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border: 2px solid rgba(187, 187, 187, 0.3);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    padding: 5px 10px;
+}
+
+.side_tag_link:hover {
+    border-color: rgb(181, 159, 91);
+}
+
+/* -------------------Темы навигация---------------- */
+.topics {
+    margin-top: 50px;
+}
+
+.topics_list {
+    gap: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.topics_list li {
+    border-bottom: 1px solid rgba(187, 187, 187, 0.3); /* серая линия снизу */
+    margin-bottom: 15px; /* расстояние между элементами */
+    padding-bottom: 10px;
+}
+
+.topic_link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    margin-left: 3px;
+}
+
+.topic_count {
+    color: rgb(181, 159, 91);
+    font-size: 0.6rem;
+    vertical-align: text-top; /* поднимает число вверх */
+    display: inline-block;
+}
+
+.topic_link:hover, /* на всю ссылку — меняется и число, и текст */
+.topic_link:hover .topic_count {
+    color: rgb(213, 197, 157);
+}
+
+/* -------------------Лента продуктов---------------- */
+.feed_products {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.products {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 15px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    gap: 50px;
+}
+
+.product {
+    flex: 1;
+    min-width: 0; /* Фикс для переполнения */
+    max-width: 350px; /* Максимальная ширина карточки */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.product:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product_imgbox {
+    height: 200px;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.product_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product_body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid rgb(181, 159, 91);
+    margin: -30px 0 0;
+}
+
+.product_body:hover {
+    background-color: rgba(187, 187, 187, 0.2);
+}
+
+.product_text {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.highlight {
+    text-decoration: none;
+    color: rgb(181, 159, 91);
+}
+
+.product_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.product_prices {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.product_price {
+    display: flex;
+    align-items: baseline;
+}
+
+.product_price_old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.75em;
+}
+
+.product_price-value {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product_rub {
+    margin-left: 2px;
+    font-size: 0.9em;
+}
+.product_button {
+    padding: 10px 20px;
+    background-color: rgb(181, 159, 91);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.product_button:hover {
+    background-color: rgb(181, 159, 91);
+}
+
+/* -------------------Подвал---------------- */
+.basement_container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(245, 247, 246);
+    padding: 30px;
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.social {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.social_link img {
+    display: block;
+    width: 20px;
+    height: auto;
+}
+
+.copyright_container{
+    margin-top: 6px;
+    text-align: center;
+}
+
+.copyright {
+    text-decoration: none;
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: rgb(128, 128, 128);
+    margin-top: 70px;
+    margin-left: 5px;
+}
+
+/* -------------------Pop-up---------------- */
+.popup {
+    max-width: 400px;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 4;
+    width: 90%;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.popup_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 3;
+}
+
+/* Крестик закрытия */
+.popup_close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    z-index: 3;
+}
+
+/* Группы элементов формы */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Стили для поля с выпадающим списком */
+.popup_input[type="text"] {
+    width: 100%;
+    padding: 12px 15px 12px 15px;
+    background: rgb(245, 247, 246);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+/* Специальный стиль для поля с выпадающим списком */
+.form-group:first-child .popup_input {
+    padding-right: 40px;
+    background: #f5f5f5 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 174 296" preserveAspectRatio="xMidYMid meet"><path d="M86.944.389l75.297 130.417H11.648L86.944.389zM86.945 296L11.648 165.583h150.593L86.944 296z" fill="%23d4af37"/></svg>') no-repeat calc(100% - 15px) center;
+}
+
+/* Группа радиокнопок */
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.radio-custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(181, 159, 91);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(181, 159, 91);
+}
+
+/* Текстовое поле */
+.popup_textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    background: rgb(245, 247, 246);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.popup_input:focus,
+.popup_textarea:focus {
+    border-color: rgb(181, 159, 91);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* Кнопка отправки */
+.popup_button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, rgb(181, 159, 91), rgb(223, 199, 123));
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    transition: opacity 0.3s;
+}
+
+.popup_button:hover {
+    opacity: 0.9;
+}
+
+/* ------------------- Медиа-запросы ------------------ */
+/* ------------------- Медиа-запросы: Планшет (641px-1199px) ------------------ */
+@media (min-width: 641px) and (max-width: 1199px) {
+    /* Шапка */
+    .entry {
+        padding-bottom: 180px;
+    }
+
+    .container {
+        padding: 0 35px;
+    }
+
+    /* Бургер вместо меню */
+    .menu_list {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+        width: 23px;
+        height: 10px;
+        border-top: 3px solid white;
+        border-bottom: 3px solid white;
+        position: relative;
+        background: none;
+    }
+
+    .burger::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 23px;
+        height: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+    }
+
+    /* Логотип */
+    .header_logo {
+        height: 30px;
+    }
+
+    /* Заголовок */
+    .site_title {
+        font-size: 2rem;
+        max-width: 650px;
+        margin-top: 60px;
+    }
+
+    /* Тренды */
+    .trends {
+        margin: 40px auto 50px;
+        padding: 0 35px;
+    }
+
+    .trends_list {
+        gap: 3px;
+        margin: 0 -2px;
+    }
+
+    .trends_item {
+        margin: 2px;
+        flex: 0 0 calc(50% - 4px);
+    }
+
+    .trend_info {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        padding: 10px;
+    }
+
+    .trend_heading {
+        font-size: 17px;
+    }
+
+    /* Основной контент и сайдбар */
+    .page {
+        flex-direction: row;
+        padding: 0 35px;
+        margin: 40px auto 0;
+    }
+
+    .content {
+        width: 65%;
+    }
+
+    .sidebar {
+        width: 35%;
+        margin-left: 30px;
+    }
+
+    /* Посты */
+    .post_layout {
+        flex-direction: column;
+        width: 100%;
+        border-bottom: 3px solid #eee;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .post:last-child .post_layout {
+        border-bottom: none;
+    }
+
+    .post_img {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .post_filler {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .post_title a {
+        font-size: 17px;
+    }
+
+    .post_info {
+        margin: 10px 0;
+    }
+
+    .post_text {
+        font-size: 15px;
+    }
+
+    /* Наши изделия: 2 в ряд */
+    .feed_products {
+        padding: 0 35px;
+    }
+
+    .products {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .product {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    /* Футер */
+    .basement_container {
+        padding: 20px 35px;
+    }
+}
+
+/* Пейзажная ориентация для трендов (4 колонки) */
+@media (min-width: 641px) and (max-width: 1199px) and (orientation: landscape) {
+    .trends_item {
+        flex: 0 0 calc(25% - 6px);
+    }
+}
+
+/* ------------------- Медиа-запросы: Мобильная версия (до 640px) ------------------ */
+@media (max-width: 640px) {
+    /* Шапка */
+    .entry {
+        padding: 15px 15px 100px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    /* Бургер-меню */
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .menu_list {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+        width: 33px;
+        height: 15px;
+        border-top: 5px solid white;
+        border-bottom: 5px solid white;
+        position: relative;
+        background: none;
+    }
+
+    .burger::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 33px;
+        height: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+    }
+
+    /* Логотип */
+    .header_logo_link {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .header_logo {
+        height: 30px;
+    }
+
+    .site_title {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+
+    /* Тренды */
+    .trends {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .trends_list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .trend_info {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+
+    .trend_heading {
+        font-size: 17px;
+    }
+
+    /* Основной контент */
+    .page {
+        flex-direction: column;
+        padding: 0 15px;
+        margin: 20px auto 0;
+    }
+
+    .post_layout {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .post_img {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .post_filler {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .post_info {
+        margin: 10px 0;
+    }
+
+    /* Боковая панель */
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    /* Новые посты: картинка слева, текст справа */
+    .fresh_post_layout {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .fresh_post_img {
+        width: 70px;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+    /* Поиск: скрываем текст кнопки */
+    .search_button span {
+        display: none;
+    }
+
+    /* Рассылка */
+    .subscribe_input {
+        margin: 20px 0 10px;
+    }
+
+    /* Теги */
+    .side_tags_list {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    /* Наши изделия: горизонтальный ряд */
+    .feed_products {
+        padding: 0 15px;
+    }
+
+    .products {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 10px;
+        margin: 30px auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .product {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+    }
+
+    /* Футер */
+    .basement_container {
+        padding: 20px;
+    }
+}
+
+/* Мобильная пейзажная ориентация (2 колонки для трендов) */
+@media (max-width: 640px) and (orientation: landscape) {
+    .trends_list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .trends_item {
+        flex: 0 0 calc(50% - 5px);
+    }
+}
