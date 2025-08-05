@@ -892,15 +892,17 @@
     .trends_list {
         gap: 3px;
         margin: 0 -2px;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .trends_item {
-        margin: 2px;
-        flex: 0 0 calc(50% - 4px);
+        flex: 0 0 calc(50% - 3px);
+        max-width: calc(50% - 3px);
+        box-sizing: border-box;
     }
 
     .trend_info {
-        bottom: 15px;
         left: 15px;
         right: 15px;
         padding: 10px;
@@ -992,23 +994,25 @@
 
 /* ------------------- Медиа-запросы: Мобильная версия (до 640px) ------------------ */
 @media (max-width: 640px) {
-    /* Шапка */
+    /* Шапка: бургер слева вверху, логотип по центру */
     .entry {
-        padding: 15px 15px 100px;
+        padding: 60px 15px 100px;
+        position: relative;
     }
 
     .container {
         flex-direction: column;
-        padding: 0 15px;
+        padding: 0;
+        position: relative;
     }
 
-    /* Бургер-меню */
+    /* Бургер-меню вверху слева */
     .menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 20px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: auto;
+        z-index: 10;
     }
 
     .menu_list {
@@ -1036,11 +1040,12 @@
         background-color: white;
     }
 
-    /* Логотип */
+    /* Логотип по центру */
     .header_logo_link {
         width: 100%;
         text-align: center;
         margin-bottom: 20px;
+        padding-top: 30px;
     }
 
     .header_logo {
@@ -1049,7 +1054,8 @@
 
     .site_title {
         font-size: 1.5rem;
-        margin-top: 30px;
+        margin-top: 0;
+        padding: 0 15px;
     }
 
     /* Тренды */
@@ -1064,7 +1070,6 @@
     }
 
     .trend_info {
-        bottom: 10px;
         left: 10px;
         right: 10px;
         padding: 10px;
@@ -1136,25 +1141,24 @@
         margin-top: 20px;
     }
 
-    /* Наши изделия: горизонтальный ряд */
+    /* Наши изделия: вертикальный столбик */
     .feed_products {
         padding: 0 15px;
     }
 
     .products {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        gap: 30px;
         padding-bottom: 10px;
         margin: 30px auto;
-        -webkit-overflow-scrolling: touch;
     }
 
     .product {
-        flex: 0 0 280px;
-        scroll-snap-align: start;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Футер */
