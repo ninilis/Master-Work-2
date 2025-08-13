@@ -679,6 +679,16 @@
 }
 
 /* -------------------Pop-up---------------- */
+.popup_container {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.popup_hidden {
+    display: none;
+}
+
 .popup {
     max-width: 400px;
     display: flex;
@@ -843,6 +853,7 @@
 
     .container {
         padding: 0 35px;
+        width: 100%;
     }
 
     /* Бургер вместо меню */
@@ -852,23 +863,8 @@
 
     .burger {
         display: block;
-        width: 23px;
-        height: 10px;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
         position: relative;
         background: none;
-    }
-
-    .burger::after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 23px;
-        height: 3px;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: white;
     }
 
     /* Логотип */
@@ -886,7 +882,6 @@
     /* Тренды */
     .trends {
         margin: 40px auto 50px;
-        padding: 0 35px;
     }
 
     .trends_list {
@@ -982,6 +977,7 @@
     /* Футер */
     .basement_container {
         padding: 20px 35px;
+        width: 100%;
     }
 }
 
@@ -1004,40 +1000,21 @@
         flex-direction: column;
         padding: 0;
         position: relative;
+        width: 100%;
     }
 
-    /* Бургер-меню вверху слева */
-    .menu {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        width: auto;
-        z-index: 10;
-    }
-
+    /* Бургер вместо меню */
     .menu_list {
         display: none;
     }
 
     .burger {
         display: block;
-        width: 33px;
-        height: 15px;
-        border-top: 5px solid white;
-        border-bottom: 5px solid white;
-        position: relative;
         background: none;
-    }
-
-    .burger::after {
-        content: '';
-        display: block;
         position: absolute;
-        width: 33px;
-        height: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: white;
+        top: 0;
+        right: 0;
+        cursor: pointer;
     }
 
     /* Логотип по центру */
@@ -1045,7 +1022,7 @@
         width: 100%;
         text-align: center;
         margin-bottom: 20px;
-        padding-top: 30px;
+        padding-top: 60px;
     }
 
     .header_logo {
@@ -1061,7 +1038,6 @@
     /* Тренды */
     .trends {
         margin: 30px auto;
-        padding: 0 15px;
     }
 
     .trends_list {
@@ -1164,6 +1140,7 @@
     /* Футер */
     .basement_container {
         padding: 20px;
+        width: 100%;
     }
 }
 
